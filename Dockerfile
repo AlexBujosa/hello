@@ -9,7 +9,7 @@ ENV GO111MODULE=on\
     GOOS=linux\
     GOARCH=amd64
 
-WORKDIR /Desktop/GO/Applications/goworkspace/src/github.com/AlexBujosa/PruebasPracticas/hello
+WORKDIR /Desktop/GO/Applications/goworkspace/src/github.com/AlexBujosa/hello
 
 COPY go.mod .
 RUN go mod download
