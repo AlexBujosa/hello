@@ -9,18 +9,18 @@ ENV GO111MODULE=on\
     GOOS=linux\
     GOARCH=amd64
 
-WORKDIR /Desktop/GO/Applications/goworkspace/src/github.com/AlexBujosa/hello
+WORKDIR /app
 
-COPY go.mod .
+COPY go.mod ./
 RUN go mod download
 
-COPY . . 
-RUN go install
+COPY *.go ./
+RUN go build -o /hello
 
-FROM scratch 
-COPY --from=builder /Desktop/GO/Applications/goworkspace/src/github.com/AlexBujosa//hello .
-ENTRYPOINT [ "./main" ]
+EXPOSE 8080
 
+
+CMD ["/hello"]
 #CMD ["./main"]
 # docker build -t myapp .
 # dsudo s
